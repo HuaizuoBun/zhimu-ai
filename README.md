@@ -54,4 +54,4 @@ npm 11 的 allow-scripts 会拦截依赖安装脚本，安装后如构建报错�
 
 ## License
 
-私用与小范围试用项目，未指定开源许可证（如需开源请自行选择并添加 LICENSE）。
+本项目基于 MIT 协议开源，详见 [LICENSE](LICENSE) 文件。
