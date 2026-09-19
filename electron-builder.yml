@@ -1,0 +1,24 @@
+appId: cn.zhimu.ai.desktop
+productName: 知幕 AI
+directories:
+  output: desktop/release
+  buildResources: desktop/build
+# Everything the app needs is bundled into desktop/dist (renderer + server +
+# main). No node_modules are shipped: React is bundled into the renderer and
+# Hono into the server bundle.
+files:
+  - desktop/dist/**
+asar: true
+asarUnpack:
+  - desktop/dist/server/**
+  - desktop/dist/renderer/**
+icon: desktop/build/icon.png
+win:
+  target: nsis
+  requestedExecutionLevel: asInvoker
+nsis:
+  perMachine: false
+  oneClick: true
+  deleteAppDataOnUninstall: false
+  artifactName: 知幕AI-Setup-${version}-${arch}.exe
+  shortcutName: 知幕 AI

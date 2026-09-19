@@ -1,0 +1,5 @@
+/* Desktop style entry: reuse the web app stylesheet and make sure Tailwind 4
+   also scans the parent app/ directory for class names (its automatic source
+   detection is rooted at the stylesheet location, which would be desktop/). */
+@import "../../app/globals.css";
+@source "../../app/";

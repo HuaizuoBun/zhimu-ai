@@ -1,0 +1,14 @@
+// Official API capabilities checked 2026-09-17. A provider key is never shared across vendors.
+export const providers = [
+  { id: "deepseek", name: "DeepSeek", short: "D", color: "#4c6fff", model: "deepseek-flash", textModel: "deepseek-flash", modelLabel: "V4.1 Flash", endpoint: "https://api.deepseek.com/chat/completions", mode: "frames", capability: "画面 + 字幕", help: "推荐 V4.1 Flash（deepseek-flash）。按自定义间隔抽帧，结合已有字幕分析；不直接识别音轨。", docs: "https://api-docs.deepseek.com/guides/vision/" },
+  { id: "qwen", name: "阿里通义", short: "Q", color: "#6a4cff", model: "qwen3.5-omni-flash", textModel: "qwen-plus", modelLabel: "Qwen3.5 Omni Flash", endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions", mode: "native", capability: "声音 + 画面", help: "推荐 Qwen3.5 Omni Flash，直接理解视频音轨与画面。关闭多模态时自动使用 qwen-plus，仍用同一个百炼 Key（北京地域）。", docs: "https://help.aliyun.com/zh/model-studio/qwen-omni" },
+  { id: "gemini", name: "Gemini", short: "✦", color: "#4285f4", model: "gemini-3.5-flash", textModel: "gemini-3.5-flash", modelLabel: "Gemini 3.5 Flash", endpoint: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", mode: "native", capability: "声音 + 画面", help: "推荐 Gemini 3.5 Flash，支持本地视频文件的直接音画理解。", docs: "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash" },
+  { id: "kimi", name: "Kimi", short: "K", color: "#202124", model: "kimi-k3", textModel: "kimi-k3", modelLabel: "Kimi K3", endpoint: "https://api.moonshot.cn/v1/chat/completions", mode: "frames", capability: "画面 + 字幕", help: "推荐 Kimi K3。本站通过带时间的画面帧与字幕进行分析，不把视觉理解当作语音转写。", docs: "https://platform.kimi.com/docs/models" },
+  { id: "doubao", name: "字节豆包", short: "豆", color: "#3370ff", model: "doubao-seed-2-0-lite-260428", textModel: "doubao-seed-2-0-lite-260428", modelLabel: "Seed 2.0 Lite", endpoint: "https://ark.cn-beijing.volces.com/api/v3/chat/completions", mode: "frames", capability: "画面 + 字幕", help: "推荐 Doubao Seed 2.0 Lite。本站使用抽帧 + 字幕链路，需在火山方舟开通模型；也可填自己的推理接入点 ID。", docs: "https://www.volcengine.com/docs/82379/1362931" },
+  { id: "glm", name: "智谱 GLM", short: "智", color: "#0c85d0", model: "glm-5.3-flash", textModel: "glm-5.3-flash", modelLabel: "GLM-5.3-Flash", endpoint: "https://open.bigmodel.cn/api/paas/v4/chat/completions", mode: "frames", capability: "画面 + 字幕", help: "推荐 GLM-5.3-Flash，支持原生视觉。本站按自定义间隔抽帧，不宣称音轨转写。智谱中国站 Key 使用默认地址；Z.ai 国际站 Key 请在高级设置改为 https://api.z.ai/api/paas/v4/chat/completions，并测试当前地域的模型权限。", docs: "https://docs.z.ai/guides/vlm/glm-5.3-flash" },
+  { id: "gpt", name: "GPT", short: "◎", color: "#111111", model: "gpt-5.6-luna", textModel: "gpt-5.6-luna", modelLabel: "GPT-5.6 Luna", endpoint: "https://api.openai.com/v1/chat/completions", mode: "frames", capability: "画面 + 字幕", help: "推荐 GPT-5.6 Luna，适合低成本图文分析。它不直接接收视频音轨，本站使用抽帧 + 字幕。", docs: "https://developers.openai.com/api/docs/models/gpt-5.6-luna" },
+] as const;
+
+export function providerById(id?: string) {
+  return providers.find((provider) => provider.id === id);
+}
